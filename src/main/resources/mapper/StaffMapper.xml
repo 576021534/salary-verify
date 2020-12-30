@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.grid.salary.verify.mapper.StaffMapper" >
+  <resultMap id="BaseResultMap" type="com.grid.salary.verify.domain.Staff" >
+    <id column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="staff_name" property="staffName" jdbcType="VARCHAR" />
+    <result column="staff_number" property="staffNumber" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="is_trial" property="isTrial" jdbcType="INTEGER" />
+    <result column="join_time" property="joinTime" jdbcType="TIMESTAMP" />
+    <result column="on_trial_time" property="onTrialTime" jdbcType="TIMESTAMP" />
+    <result column="quit_time" property="quitTime" jdbcType="TIMESTAMP" />
+    <result column="is_social_security" property="isSocialSecurity" jdbcType="INTEGER" />
+    <result column="station_wages" property="stationWages" jdbcType="DECIMAL" />
+    <result column="base_wages" property="baseWages" jdbcType="DECIMAL" />
+    <result column="performance" property="performance" jdbcType="DECIMAL" />
+    <result column="proportion" property="proportion" jdbcType="INTEGER" />
+    <result column="manager_allowance" property="managerAllowance" jdbcType="DECIMAL" />
+    <result column="skill_allowance" property="skillAllowance" jdbcType="DECIMAL" />
+    <result column="secrecy_allowance" property="secrecyAllowance" jdbcType="DECIMAL" />
+    <result column="project_allowance" property="projectAllowance" jdbcType="DECIMAL" />
+    <result column="lunch_allowance" property="lunchAllowance" jdbcType="DECIMAL" />
+    <result column="working_allowance" property="workingAllowance" jdbcType="DECIMAL" />
+    <result column="traffic_allowance" property="trafficAllowance" jdbcType="DECIMAL" />
+    <result column="hydropower_allowance" property="hydropowerAllowance" jdbcType="DECIMAL" />
+    <result column="duty_allowance" property="dutyAllowance" jdbcType="DECIMAL" />
+    <result column="brithday" property="brithday" jdbcType="DATE" />
+    <result column="person_no" property="personNo" jdbcType="VARCHAR" />
+    <result column="native_place" property="nativePlace" jdbcType="VARCHAR" />
+    <result column="affiliation" property="affiliation" jdbcType="VARCHAR" />
+    <result column="education" property="education" jdbcType="INTEGER" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="graduation_time" property="graduationTime" jdbcType="TIMESTAMP" />
+    <result column="work_time" property="workTime" jdbcType="TIMESTAMP" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="registered" property="registered" jdbcType="VARCHAR" />
+    <result column="person_address" property="personAddress" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="is_marry" property="isMarry" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="urgent_name" property="urgentName" jdbcType="VARCHAR" />
+    <result column="urgent_phone" property="urgentPhone" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_id, staff_name, staff_number, sex, position, status, is_trial, join_time, on_trial_time, 
+    quit_time, is_social_security, station_wages, base_wages, performance, proportion, 
+    manager_allowance, skill_allowance, secrecy_allowance, project_allowance, lunch_allowance, 
+    working_allowance, traffic_allowance, hydropower_allowance, duty_allowance, brithday, 
+    person_no, native_place, affiliation, education, major, school, graduation_time, 
+    work_time, nation, registered, person_address, address, language, is_marry, email, 
+    phone, urgent_name, urgent_phone, create_time, creator, is_del
+  </sql>
+
+
+  <!-- 关联查询员工，考勤，绩效，社保(郑州，西安) -->
+  <select id="querySalaryAccount" resultType="java.util.Map" parameterType="java.lang.String">
+
+  </select>
+
+
+
+</mapper>

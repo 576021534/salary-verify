@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.grid.salary.verify.mapper.UserMapper">
+	<resultMap id="SysUserMap" type="com.grid.salary.verify.domain.User">
+		<result property="id" jdbcType="VARCHAR" column="id"/> <!--  主键ID -->
+		<result property="userName" jdbcType="VARCHAR" column="user_name"/> <!--  用户名 -->
+		<result property="loginName" jdbcType="VARCHAR" column="login_name"/> <!--  登录帐号 -->
+		<result property="password" jdbcType="VARCHAR" column="password"/> <!--  密码 -->
+		<result property="createTime" jdbcType="TIMESTAMP" column="create_time"/> <!--  创建时间 -->
+		<result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/> <!--  修改时间 -->
+	</resultMap>
+	<sql id="BaseColumn">
+		id,
+		user_name,
+		login_name,
+		password,
+		create_time,
+		update_time
+	</sql>
+
+
+</mapper>
